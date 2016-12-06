@@ -1,0 +1,167 @@
+<ion-view view-title="{{ic.title}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-dark" ng-click="ic.updateHomeImgs()" ng-disabled="ic.homeImgs.length == 0" ng-show="ic.isHomePhotoForm">
+      Upload
+    </button>
+    <button class="button button-dark" ng-click="ic.updateOwnImgs()" ng-disabled="ic.ownImgs.length == 0" ng-show="ic.isOwnPhotoForm">
+      Upload
+    </button>
+    <!--<div class="button button-clear" ng-click="ic.uploadData()">
+      <i class="xlarge ion-upload"></i>
+    </div>-->
+  </ion-nav-buttons>
+  <ion-content class="has-footer">
+    <!--<form name="ownPhotoForm" novalidate ng-show="ic.isOwnPhotoForm">
+      <div class="padding" ng-show="ic.ownImages.uri.length == 0 || ic.ownImages.uri.length < ic.ownImagesLimit">
+        <i class="icon icon ion-camera float-left xlarge" ng-click="ic.addImgs('own', 'camera')"></i>
+        <i class="icon ion-images float-right xlarge" ng-click="ic.addImgs('own', 'galary')"></i>
+      </div>
+      <div class="padding">
+
+      </div>
+
+      <div class="item item-body txt-ctr-align" ng-show="ic.ownImages.uri.length == 0">
+        <img src="{{ic.noImg}}">
+      </div>
+
+      <div class="item item-body" ng-repeat="img in ic.ownImages.base64">
+        <img class="full-image" ng-src="data:image/jpg;base64,{{img}}" ng-click="ic.largeImg('own', img)">
+        <div class="padding">
+          <i class="icon ion-trash-b float-right xlarge" ng-click="ic.removeImg('own', img)"></i>
+        </div>
+      </div>
+    </form>-->
+
+    <form name="ownPhotoForm" ng-show="ic.isOwnPhotoForm">
+      <!--<div class="padding" ng-show="ic.ownImgs.length == 0 || ic.ownImgs.length < ic.ownImagesLimit">
+        <i class="icon icon ion-camera float-left xlarge" ng-click="ic.addImgs('own', 'camera')"></i>
+        <i class="icon ion-images float-right xlarge" ng-click="ic.addImgs('own', 'galary')"></i>
+      </div>-->
+      <div class="card">
+        <div class="item item-divider">
+          <span class="float-left">
+            Added: {{ic.ownImgs.length}}
+          </span>
+          <span class="float-right">
+            Remaining: {{ic.ownImagesLimit - ic.ownImgs.length}}
+          </span>
+        </div>
+
+        <div class="item item-text-wrap" ng-show="ic.ownImgs.length == 0 || ic.ownImgs.length < ic.ownImagesLimit">
+          <button class="button button-royal button-clear" ng-click="ic.addImgs('own', 'camera')">
+            <i class="icon icon ion-camera xlarge"></i>
+          </button>
+
+          <button class="button button-royal button-clear float-right" ng-click="ic.addImgs('own', 'galary')">
+            <i class="icon ion-images  xlarge"></i>
+          </button>
+          <!--<i class="icon icon ion-camera float-left xlarge" ng-click="ic.addImgs('own', 'camera')"></i>
+          <i class="icon ion-images float-right xlarge" ng-click="ic.addImgs('own', 'galary')"></i>-->
+        </div>
+      </div>
+      <!--<div class="padding">
+
+      </div>-->
+      <div class="card" ng-show="ic.ownImgs.length == 0">
+        <div class="item item-text-wrap txt-ctr-align">
+          <img src="{{ic.noImg}}">
+        </div>
+      </div>
+      <div class="card" ng-repeat="img in ic.ownImgs">
+        <div class="item item-text-wrap txt-ctr-align">
+          <img class="w50" ng-src="data:image/jpg;base64,{{img.base64}}" ng-click="ic.largeImg('own', $index)">
+
+          <button class="button button-royal button-clear float-right" ng-click="ic.removeImg('own', img._id, $index)">
+            <i class="icon ion-trash-b xlarge"></i>
+          </button>
+        </div>
+      </div>
+      <!--<div class="item item-body" ng-repeat="img in ic.ownImgs">
+        <img class="full-image" ng-src="data:image/jpg;base64,{{img.base64}}" ng-click="ic.largeImg('own', $index)">
+        <div class="padding">
+          <i class="icon ion-trash-b float-right xlarge" ng-click="ic.removeImg('own', img)"></i>
+        </div>
+      </div>-->
+    </form>
+
+    <!-- Home photos -->
+    <form name="homePhotoForm" ng-show="ic.isHomePhotoForm">
+      <!--  <div class="padding" ng-show="ic.homeImgs.length == 0 || ic.homeImgs.length < ic.homeImagesLimit">
+        <i class="icon icon ion-camera float-left xlarge" ng-click="ic.addImgs('home', 'camera')"></i>
+        <i class="icon ion-images float-right xlarge" ng-click="ic.addImgs('home', 'galary')"></i>
+      </div>-->
+
+      <div class="card">
+        <div class="item item-divider">
+          <span class="float-left">
+            Added: {{ic.homeImgs.length}}
+          </span>
+          <span class="float-right">
+            Remaining: {{ic.homeImagesLimit - ic.homeImgs.length}}
+          </span>
+        </div>
+        <div class="item item-text-wrap" ng-show="ic.homeImgs.length == 0 || ic.homeImgs.length < ic.homeImagesLimit">
+          <button class="button button-royal button-clear" ng-click="ic.addImgs('home', 'camera')">
+            <i class="icon icon ion-camera xlarge"></i>
+          </button>
+          <button class="button button-royal button-clear float-right" ng-click="ic.addImgs('home', 'galary')">
+            <i class="icon ion-images  xlarge"></i>
+          </button>
+        </div>
+      </div>
+      <!--<div class="padding">
+
+      </div>-->
+      <div class="card" ng-show="ic.homeImgs.length == 0">
+        <div class="item item-text-wrap txt-ctr-align">
+          <img src="{{ic.noImg}}">
+        </div>
+      </div>
+      <div class="card" ng-repeat="img in ic.homeImgs">
+        <div class="item item-text-wrap txt-ctr-align">
+          <img class="w50" ng-src="data:image/jpg;base64,{{img.base64}}" ng-click="ic.largeImg('home', $index)">
+          <!--<i class="icon ion-trash-b float-right xlarge" ng-click="ic.removeImg('home', $index)"></i>-->
+          <button class="button button-royal button-clear float-right" ng-click="ic.removeImg('home', img._id, $index)">
+            <i class="icon ion-trash-b xlarge"></i>
+          </button>
+        </div>
+      </div>
+      <!--<div class="item item-body" ng-repeat="img in ic.homeImgs">
+        <img class="full-image" ng-src="data:image/jpg;base64,{{img.base64}}" ng-click="ic.largeImg('home', $index)">
+        <div class="padding">
+          <i class="icon ion-trash-b float-right xlarge" ng-click="ic.removeImg('home', img)"></i>
+        </div>
+      </div>-->
+
+    </form>
+    <!-- Home photos -->
+    <!--<form name="homePhotoForm" novalidate ng-show="ic.isHomePhotoForm">
+      <div class="padding" ng-show="ic.homeImages.uri.length == 0 || ic.homeImages.uri.length < ic.homeImagesLimit">
+        <i class="icon icon ion-camera float-left xlarge" ng-click="ic.addImgs('home', 'camera')"></i>
+        <i class="icon ion-images float-right xlarge" ng-click="ic.addImgs('home', 'galary')"></i>
+      </div>
+      <div class="padding">
+
+      </div>
+      <div class="item item-body txt-ctr-align" ng-show="ic.homeImages.uri.length == 0">
+        <img src="{{ic.noImg}}">
+      </div>
+      <div class="item item-body" ng-repeat="img in ic.homeImages.uri">
+        <img class="full-image" src="{{img}}" ng-click="ic.largeImg('home', img)">
+        <div class="padding">
+          <i class="icon ion-trash-b float-right xlarge" ng-click="ic.removeImg('home', img)"></i>
+        </div>
+      </div>
+    </form>-->
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button " ng-click="ic.showOwnPhotoForm()">Personal images</button>
+    <button class="button" ng-click="ic.showHomePhotoForm()">Home images</button>
+    <!--<div class="button-bar txt-ctr-align">
+      <ion-scroll direction="x" class="w100">
+        <button class="button txt-xx-small-font" ng-click="ic.showOwnPhotoForm()">Personal</button>
+        <button class="button txt-xx-small-font" ng-click="ic.showHomePhotoForm()">Home</button>
+      </ion-scroll>
+    </div>-->
+  </div>
+</ion-view>

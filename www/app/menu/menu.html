@@ -1,0 +1,94 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content class="bar-royal">
+    <ion-nav-bar class="bar-royal">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-royal">
+      <h1 class="title">सेवा मंगलम
+      <!--<i class="icon ion-log-out float-right xlarge" ng-click="mc.signoutActionSheet()"></i>-->
+    </h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <div class="card">
+          <div class="item item-thumbnail-left">
+            <!--<img ng-src="{{mc.dp.uri}}" ng-hide="rootDP">-->
+            <img ng-click="mc.goToThisState('menu.innerdp')" ng-src="data:image/jpg;base64,{{mc.dp}}"/>
+            <h2>
+              {{mc.fullName}}
+            </h2>
+            <p>
+              {{mc.userId}}
+            </p>
+            <p ng-show="mc.age">
+              {{mc.age}} Yrs, {{mc.height.feet}}' {{mc.height.inches}}"
+            </p>
+            <p ng-show="mc.location.town">
+              {{mc.location.town}}, {{mc.location.district}}.
+            </p>
+          </div>
+        </div>
+        <!--<li class="item ion-android-search" menu-close ui-sref="menu.profiles"> Search profiles</li>-->
+
+        <!--<ion-item class="item-icon-left" menu-close ui-sref="menu.profiles">
+          <i class="icon ion-android-search txt-color"></i> Browse profiles
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.visitors')">
+          <i class="icon ion-university txt-color"></i> Visitors
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.requests')">
+          <i class="icon ion-person-stalker txt-color"></i> Requests
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.slprofiles')">
+          <i class="icon ion-ios-star txt-color"></i> Shortlisted
+        </ion-item>-->
+        <!--<ion-item class="item-icon-left" menu-close ui-sref="menu.profilesp">
+          <i class="icon ion-university txt-color"></i> Profiles preference
+        </ion-item>-->
+        <!--<ion-item class="item-icon-left" menu-close ui-sref="menu.editprofile">
+          <i class="icon ion-person txt-color"></i> Edit profile
+        </ion-item>-->
+        <ion-item class="item-icon-left" menu-close ui-sref="menu.profiles">
+          <i class="large icon ion-android-search txt-color"></i> Browse profiles
+        </ion-item>
+
+        <!-- Temporary hiding -->
+        <!--<ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.inbox')">
+          <i class="large icon ion-reply txt-color"></i> Inbox
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.outbox')">
+          <i class="large icon ion-forward txt-color"></i> Outbox
+        </ion-item>-->
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.editprofile')">
+          <i class="large icon ion-person txt-color"></i> Edit profile
+        </ion-item>
+        <!--<ion-item class="item-icon-left" menu-close ui-sref="menu.pinfo">
+          <i class="large icon ion-edit txt-color"></i>
+          Edit profile
+        </ion-item>-->
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.settings')">
+          <i class="large icon ion-gear-a txt-color"></i> Settings
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.tc')">
+          <i class="large icon ion-android-clipboard txt-color"></i> Terms & conditions
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.goToThisState('menu.help')">
+          <i class="large icon ion-help txt-color"></i> Help
+        </ion-item>
+        <ion-item class="item-icon-left" ng-click="mc.signoutActionSheet()">
+          <i class="large icon ion-log-out txt-color"></i> Sign out
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

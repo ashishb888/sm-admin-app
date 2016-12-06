@@ -1,0 +1,81 @@
+<ion-view view-title="Profiles preference">
+  <ion-content class="">
+    <form name="profilesPForm" novalidate>
+      <div class="item row no-padding">
+        <div class="col no-padding">
+          <label class="item item-input item-select">
+            <div class="input-label xxsmall">
+              Min age
+            </div>
+            <select ng-model="ppc.ppf.minAge" class="xxsmall">
+              <option ng-repeat="a in ppc.ageArr">{{a}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="col no-padding">
+          <label class="item item-input item-select">
+            <div class="input-label xxsmall">
+              Max age
+            </div>
+            <select ng-model="ppc.ppf.maxAge" class="xxsmall">
+              <option ng-repeat="a in ppc.ageArr">{{a}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="item row no-padding">
+        <div class="col no-padding">
+          <label class="item item-input item-select">
+            <div class="input-label xxsmall">
+              Min height
+            </div>
+            <select ng-model="ppc.ppf.minHeight" class="xxsmall">
+              <option ng-repeat="h in ppc.heightArr">{{h}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="col no-padding">
+          <label class="item item-input item-select">
+            <div class="input-label xxsmall">
+              Max height
+            </div>
+            <select ng-model="ppc.ppf.maxHeight" class="xxsmall">
+              <option ng-repeat="h in ppc.heightArr">{{h}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Complexion
+        </div>
+        <select ng-model="ppc.ppf.complexion">
+          <option ng-repeat="c in ppc.complexionArr">{{c}}</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Body type
+        </div>
+        <select ng-model="ppc.ppf.bodyType">
+          <option ng-repeat="bt in ppc.bodyTypeArr">{{bt}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Sub-caste
+        </div>
+        <select ng-model="ppc.ppf.subCaste">
+          <option ng-repeat="sc in ppc.subCasteArr">{{sc}}</option>
+        </select>
+      </label>
+      <div class="padding">
+        <button class="button button-full button-royal" ng-disabled="profilesPForm.$invalid" ng-click="ppc.updateProfilePreference()">
+          Update preference
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

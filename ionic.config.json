@@ -1,0 +1,17 @@
+{
+  "name": "sm-admin-app",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "proxies": [{
+    "path": "/api/",
+    "proxyUrl": "http://localhost:3000"
+   }]
+}

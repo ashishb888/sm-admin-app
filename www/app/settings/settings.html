@@ -1,0 +1,84 @@
+<ion-view view-title="Settings">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear float-left" ng-click="sc.settingsActionSheet()">
+      <i class="icon ion-android-more-vertical"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="">
+    <div class="list">
+      <form name="updatePasswordForm" novalidate ng-show="sc.isUpdatePassword">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Old password</span>
+          <input type="password" name="oldPassword" placeholder="Old password" ng-model="sc.passuf.oldPassword" ng-required="true" ng-minlength="6">
+          <div class="app-error" ng-messages="updatePasswordForm.oldPassword.$error" ng-if="updatePasswordForm.oldPassword.$dirty">
+            <div ng-message="required">Password is required.</div>
+            <div ng-message="minlength">Password must be at least 6 characters long.</div>
+            <div ng-message="maxlength">Password can be at most 12 characters long.</div>
+          </div>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">New password</span>
+          <input type="password" name="newPassword" placeholder="New password" ng-model="sc.passuf.password" ng-required="true" ng-minlength="6">
+          <div class="app-error" ng-messages="updatePasswordForm.newPassword.$error" ng-if="updatePasswordForm.newPassword.$dirty">
+            <div ng-message="required">Password is required.</div>
+            <div ng-message="minlength">Password must be at least 6 characters long.</div>
+            <div ng-message="maxlength">Password can be at most 12 characters long.</div>
+          </div>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Re-type new password</span>
+          <input type="password" name="reNewPassword" placeholder="Re-type new password" ng-model="sc.passuf.rePassword" ng-required="true" ng-minlength="6">
+          <div class="app-error" ng-messages="updatePasswordForm.reNewPassword.$error" ng-if="updatePasswordForm.reNewPassword.$dirty">
+            <div ng-message="required">Password is required.</div>
+            <div ng-message="minlength">Password must be at least 6 characters long.</div>
+            <div ng-message="maxlength">Password can be at most 12 characters long.</div>
+          </div>
+        </label>
+        <div class="padding">
+          <button class="button button-small button-full button-royal" ng-disabled="updatePasswordForm.$invalid" ng-click="sc.updatePassword()">
+            Update password
+          </button>
+        </div>
+      </form>
+
+      <!-- Update mobile number -->
+      <form name="updateMobileForm" novalidate ng-hide="sc.isUpdatePassword">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Old mobile number</span>
+          <input type="tel" name="oldPhone" placeholder="Old mobile number" ng-model="sc.puf.oldPhone" ng-required="true" ng-minlength="10" ng-maxlength="10">
+          <div class="app-error" ng-messages="updateMobileForm.oldPhone.$error" ng-if="updateMobileForm.oldPhone.$dirty">
+            <div ng-message="required">Mobile number is required.</div>
+            <div ng-message="tel">Enter a valid mobile number.</div>
+            <div ng-message="minlength">Mobile number must be at least 10 digits long.</div>
+            <div ng-message="maxlength">Mobile number can be at most 10 digits long.</div>
+          </div>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">New mobile number</span>
+          <input type="tel" name="newPhone" placeholder="New mobile number" ng-model="sc.puf.phone" ng-required="true" ng-minlength="10" ng-maxlength="10">
+          <div class="app-error" ng-messages="updateMobileForm.newPhone.$error" ng-if="updateMobileForm.newPhone.$dirty">
+            <div ng-message="required">Mobile number is required.</div>
+            <div ng-message="tel">Enter a valid mobile number.</div>
+            <div ng-message="minlength">Mobile number must be at least 10 digits long.</div>
+            <div ng-message="maxlength">Mobile number can be at most 10 digits long.</div>
+          </div>
+        </label>
+        <div class="padding">
+          <button class="button button-small button-full button-royal" ng-disabled="updateMobileForm.$invalid" ng-click="sc.updatePhone()">
+            Update phone
+          </button>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+  <!--<div class="bar bar-footer">
+    <div class="button-bar txt-ctr-align">
+      <ion-scroll direction="x" class="w100">
+        <button class="button" ng-click="sc.showUpdatePasswordForm()">Update password</button>
+        <button class="button" ng-click="sc.showUpdatePhoneForm()">Update mobile no</button>
+      </ion-scroll>
+    </div>
+  </div>-->
+</ion-view>
