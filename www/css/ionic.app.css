@@ -10137,3 +10137,25 @@ p.info {
 
 .large {
   font-size: large !important; }
+
+.menu-left .has-header {
+  top: 0px !important; }
+
+.bg-clr, .banner {
+  background-image: url("../img/banner.jpg"); }
+
+.banner {
+  border-style: none !important;
+  height: 150px !important; }
+
+.menu-left .item-avatar {
+  min-height: 150px !important; }
+
+.banner-img {
+  top: 50px !important; }
+
+.banner-h2 {
+  margin-top: 34px !important; }
+
+.white-clr, .banner-h2 {
+  color: #fff !important; }
